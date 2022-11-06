@@ -169,3 +169,10 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function print(){
+echo "lpr—Send a print job to a print queue.
+lpq—Show the status of jobs sent to a print queue.
+lprm—Delete jobs from a print queue.
+lpc—Control print queues."
+}

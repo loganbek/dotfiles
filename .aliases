@@ -9,9 +9,10 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # Shortcuts
+alias c="cd ~/code"
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
+alias dp="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
 
@@ -146,3 +147,9 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Print 
+# lpr—Send a print job to a print queue.
+# lpq—Show the status of jobs sent to a print queue.
+# lprm—Delete jobs from a print queue.
+# lpc—Control print queues.'
