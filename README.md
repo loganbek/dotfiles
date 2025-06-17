@@ -55,15 +55,15 @@ My `~/.extra` looks something like this:
 ```bash
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
+GIT_AUTHOR_NAME="loganbek"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
+GIT_AUTHOR_EMAIL="loganbek@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/loganbek/dotfiles/fork) instead, though.
+You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository.
 
 ### Sensible macOS defaults
 
@@ -83,6 +83,42 @@ When setting up a new Mac, you may want to install some common [Homebrew](https:
 
 Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
 
+## WSL (Windows Subsystem for Linux) Setup
+
+### Prerequisites
+
+1. **Enable WSL2 on Windows:**
+   ```powershell
+   wsl --install
+   ```
+2. **Install Ubuntu from Microsoft Store**
+3. **Install Windows Terminal** (recommended)
+
+### Installation
+
+1. **Clone the repository in WSL:**
+   ```bash
+   cd ~
+   git clone https://github.com/loganbek/dotfiles.git ~/Projects/dotfiles
+   ln -s ~/Projects/dotfiles ~/dotfiles
+   ```
+2. **Run the bootstrap script:**
+   ```bash
+   cd ~/dotfiles
+   ./bootstrap.sh
+   ```
+
+This will automatically detect WSL and run WSL-specific setup, including:
+- Linking Windows directories (Downloads, Documents, Desktop)
+- Installing essential Linux packages and WSL utilities
+- Setting up clipboard and Windows interop aliases
+
+### Tips
+- Use `cdw`, `cdd`, `cdp` to quickly access Windows folders
+- Use `open` to open files with Windows default programs
+- Use `pbcopy`/`pbpaste` for clipboard integration
+- For best performance, keep projects in the WSL filesystem (`~/`)
+
 ## Feedback
 
 Suggestions/improvements
@@ -90,22 +126,10 @@ Suggestions/improvements
 
 ## Author
 
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
+| [![github/loganbek](https://avatars.githubusercontent.com/u/your-github-id?s=70)](https://github.com/loganbek "Follow @loganbek on GitHub") |
 |---|
-| [Mathias Bynens](https://loganbek.be/) |
+| [loganbek](https://github.com/loganbek) |
 
 ## Thanks to…
 
-* @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
-* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](https://butt.zone/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
-* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
-* [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
-* [Matijs Brinkhuis](https://matijs.brinkhu.is/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
-* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Sindre Sorhus](https://sindresorhus.com/)
-* [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [macOS-Defaults project](https://github.com/kevinSuttle/macOS-Defaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
-* [Haralan Dobrev](https://hkdobrev.com/)
 * Anyone who [contributed a patch](https://github.com/loganbek/dotfiles/contributors) or [made a helpful suggestion](https://github.com/loganbek/dotfiles/issues)

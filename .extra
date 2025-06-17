@@ -1,0 +1,27 @@
+# WSL-specific configurations
+if grep -qi microsoft /proc/version 2>/dev/null; then
+    echo "🐧 Loading WSL configurations..."
+
+    # Windows home directory
+    export WINHOME="/mnt/c/Users/$USER"
+
+    # Better interop with Windows
+    export BROWSER="wslview"
+
+    # Aliases for Windows programs
+    alias explorer="explorer.exe"
+    alias code="code.exe"
+    alias notepad="notepad.exe"
+
+    # Quick navigation to Windows directories
+    alias cdw="cd $WINHOME"
+    alias cdd="cd $WINHOME/Downloads"
+    alias cdp="cd $WINHOME/Documents/GitHub"
+
+    # Copy/paste integration
+    alias pbcopy="clip.exe"
+    alias pbpaste="powershell.exe -command 'Get-Clipboard'"
+
+    # Open files with Windows default programs
+    alias open="wslview"
+fi
